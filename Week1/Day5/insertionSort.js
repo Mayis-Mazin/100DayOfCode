@@ -2,6 +2,7 @@
  * 100 DAY OF Code
  * Day5: Insertion Sort 
 
+ 
 
   I: Array
   O: Sorted array
@@ -9,7 +10,7 @@
   E: -
   
   */
- 
+
 function insertionSort(array) {
     let n = array.length;
         for (let i = 1; i < n; i++) {
