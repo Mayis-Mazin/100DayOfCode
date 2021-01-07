@@ -1,4 +1,15 @@
-function selectionSort(array) { 
+/**
+ * 100 DAY OF Code
+ * Day6: Selection Sort 
+
+ 
+
+  I: Array
+  O: Sorted array
+  C: -
+  E: -
+  
+  */function selectionSort(array) { 
     let n = array.length;
         
     for(let i = 0; i < n; i++) {
