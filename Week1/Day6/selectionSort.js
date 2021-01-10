@@ -2,7 +2,7 @@
  * 100 DAY OF Code
  * Day6: Selection Sort 
 
- 
+
 
   I: Array
   O: Sorted array
