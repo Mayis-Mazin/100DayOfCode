@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { random } from "lodash";
-import "./App.css";
+import "typeface-roboto";
+import { Grid, withStyles } from "@material-ui/core";
 import QuotesMachine from "./components/QuoteMachine";
+
+const styles = {
+  container: {
+    alignItems: "center",
+    display: "flex",
+    height: "100vh",
+  },
+};
 
 class App extends Component {
   constructor(props) {
@@ -30,12 +39,10 @@ class App extends Component {
     }
     return this.state.quotes[this.state.selectedQuoteIndex];
   }
-
   /**
    * Returns an integer represents an index in state.quotes
    * If state.quotes is empty, returns undefined
    */
-  
   generateNewQuoteIndex() {
     if (!this.state.quotes.length) {
       return;
@@ -49,14 +56,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" id="quote-box">
-        <QuotesMachine
-          selectedQuote={this.selectedQuote}
-          assignNewQuoteIndex={this.assignNewQuoteIndex}
-        />
-      </div>
+      <Grid
+        className={this.props.classes.container}
+        id="quote-box"
+        justify="center"
+        container
+      >
+        <Grid xs={11} lg={8} item>
+          <QuotesMachine
+            selectedQuote={this.selectedQuote}
+            assignNewQuoteIndex={this.assignNewQuoteIndex}
+          />
+        </Grid>
+      </Grid>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
