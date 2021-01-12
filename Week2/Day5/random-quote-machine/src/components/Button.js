@@ -1,5 +1,7 @@
-import React from 'react';
-const Button =({buttonDisplayName,clickHandler})=>(
-    <button onClick={clickHandler}>{buttonDisplayName}Clickme</button>
-)
+import React from "react";
+
+const Button = ({ buttonDisplayNone, clickHandler }) => (
+  <button onClick={clickHandler}>{buttonDisplayNone}</button>
+);
+
 export default Button;
