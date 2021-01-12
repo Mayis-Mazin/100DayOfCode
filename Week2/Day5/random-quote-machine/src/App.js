@@ -30,10 +30,12 @@ class App extends Component {
     }
     return this.state.quotes[this.state.selectedQuoteIndex];
   }
+
   /**
    * Returns an integer represents an index in state.quotes
    * If state.quotes is empty, returns undefined
    */
+  
   generateNewQuoteIndex() {
     if (!this.state.quotes.length) {
       return;
