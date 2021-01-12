@@ -3,6 +3,10 @@ import { random } from "lodash";
 import "typeface-roboto";
 import { Grid, withStyles } from "@material-ui/core";
 import QuotesMachine from "./components/QuoteMachine";
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons'
 
 const styles = {
   container: {
@@ -63,10 +67,14 @@ class App extends Component {
         container
       >
         <Grid xs={11} lg={8} item>
-          <QuotesMachine
+         
+          {
+            this.selectedQuote?
+            <QuotesMachine
             selectedQuote={this.selectedQuote}
             assignNewQuoteIndex={this.assignNewQuoteIndex}
-          />
+          />: null
+          }
         </Grid>
       </Grid>
     );
