@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect,useRef} from "react";
 import Break from './components/Break'
 import Session from './components/Session'
 import TimeLeft from './components/TimeLeft'
@@ -12,7 +12,7 @@ function App() {
   const[intervalId,setIntervalId]=useState(null)
   const [sessionLength,setSessionLength]=useState(60*25);
   const[timeLeft,setTimeLeft]=useState(sessionLength)
-
+  const audioElement= useRef(null)
 
   //change timeLeft whenever sessionLength changes
   useEffect(()=>{
@@ -72,7 +72,8 @@ function App() {
              if(newTimeLeft>=0){
                  return prevTimeLeft-1
              }
-
+             // time left is less than zero
+             audioElement.current.play()
              // if session:
              if(currentSessionType ==='Session'){
                  //switch to break
@@ -99,6 +100,8 @@ function App() {
 
 
 const handleResetButtonClick=()=>{
+  //reset audio 
+  audioElement.current.load()
   // clear the timeout interval
 clearInterval(intervalId)
   // set the intervalId null
@@ -137,6 +140,9 @@ setIntervalId(null)
    <button onClick={handleResetButtonClick}>
      Reset
    </button>
+   <audio ref={audioElement}>
+     <source src="https://onlineclock.net/audio/options/default.mp3" type="audio/mpeg"/>
+   </audio>
     </div>
   );
 }
