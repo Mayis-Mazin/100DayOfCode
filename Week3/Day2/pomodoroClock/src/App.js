@@ -22,16 +22,19 @@ function App() {
 
   const decrementSessionLengthByOneMinutes=()=>{
       const newSessionLength=sessionLength-60
-      if (newSessionLength<0){
-          setSessionLength(0)
-      }else{
-          setSessionLength(newSessionLength)
-      }
+      if (newSessionLength>0){
+        setSessionLength(newSessionLength)
 
+            }
   }
 
   const incrementSessionLengthByOneMinutes=()=>{
+      setBreakLength(breakLength+60)
+    const newSessionLength=sessionLength+60
+    if (newSessionLength<=60*60){
       setSessionLength(sessionLength+60)
+
+    }
    
   }
 
@@ -39,16 +42,17 @@ function App() {
 
   const decrementBreakLengthByOneMinutes=()=>{
       const newBreakLength=breakLength-60
-      if (newBreakLength<0){
-          setBreakLength(0)
-      }else{
+      if (newBreakLength>0){
           setBreakLength(newBreakLength)
       }
 
   }
 
   const incrementBreakLengthByOneMinutes=()=>{
-      setBreakLength(breakLength+60)
+    const newBreakLength=breakLength+60
+    if(newBreakLength<=60*60){ 
+      setBreakLength(newBreakLength)
+    }
    
   }
 
@@ -70,7 +74,7 @@ function App() {
           setTimeLeft(prevTimeLeft=>{
              const newTimeLeft=prevTimeLeft-1;
              if(newTimeLeft>=0){
-                 return prevTimeLeft-1
+                 return newTimeLeft
              }
              // time left is less than zero
              audioElement.current.play()
@@ -79,7 +83,7 @@ function App() {
                  //switch to break
                  setCurrentSessionType('Break')
                  //setTimeLeft to breakLength
-                 setTimeLeft(breakLength)
+                 return breakLength
              }
 
               // if break:
@@ -87,7 +91,7 @@ function App() {
                   //switch to Session
                   setCurrentSessionType('Session')
                   //setTimeLeft to SessionBreak
-                  setTimeLeft(sessionLength)
+                  return sessionLength
               }
 
 
