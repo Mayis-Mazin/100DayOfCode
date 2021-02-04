@@ -12,7 +12,7 @@ makeHashTable = function () {
       var pair;
 
       // Replace the pair, if it already exists
-      for( var i = 0; i < pairs.length, i++) {
+      for( var i = 0; i < pairs.length; i++) {
           pair = pairs[i];
           if(pair[0] === key){
               pair[1]=value
