@@ -18,3 +18,5 @@ function reverseString(str) {
     // Joining the array elements 
     return revArray.join(''); 
 }
+console.log( 
+reverseString('Mayis'))
