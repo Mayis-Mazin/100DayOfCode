@@ -17,4 +17,4 @@ var addTo=function(passed){
 
 var addThree=new addTo(3);
 var addFour=new addTo(4);
-// the inner value 3 & 4
+// the inner values 3 & 4
