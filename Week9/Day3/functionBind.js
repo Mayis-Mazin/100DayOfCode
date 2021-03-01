@@ -57,6 +57,7 @@ var bind = function (fn, context) {
  *
 */
 
+
 Function.prototype.bind = function (context) {
   var fn = this; // function object
   var outerArgs = Array.prototype.slice.call(arguments, 1);
