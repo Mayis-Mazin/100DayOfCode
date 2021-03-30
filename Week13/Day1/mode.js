@@ -4,11 +4,11 @@ function Mode(arr) {
     let obj = {};
     let highest = 0;
     for (let i = 0; i < arr.length; i++) {
-      let thisnum = arr[i];
-      obj[thisnum] === undefined ? (obj[thisnum] = 1) : (obj[thisnum] += 1);
-      if (highest < obj[thisnum]) {
-        highest = obj[thisnum];
-        mode = thisnum;
+      let thisNum = arr[i];
+      obj[thisNum] === undefined ? (obj[thisNum] = 1) : (obj[thisNum] += 1);
+      if (highest < obj[thisNum]) {
+        highest = obj[thisNum];
+        mode = thisNum;
       }
     }
     return mode;
